@@ -1,0 +1,36 @@
+---
+title: Фронтенд сегодня – блог про фронтенд и не только сегодня
+layout: page.njk
+permalink: index.html
+---
+
+<div class="App-root Grid-root Grid-column">
+    <div class="App-header Grid-row">
+        {% include 'Header.njk' %}
+    </div>
+
+    <div class="App-main Grid-row">
+        <main class="Main-root Grid-column">
+            <h1 class="Heading-hidden">Фронтенд сегодня</h1>
+            <div class="Main-articles">
+                <h2 class="Heading-hidden">Статьи</h2>
+                <div class="Articles-root Grid-column">
+                    <p class="Articles-year" title="2020">
+                        <span>2020</span>
+                    </p>
+                    <ul class="Articles-list Grid-column">
+                        {%- for article in collections.article -%}
+                            <li class="Articles-item">
+                                {% include 'ArticleCard.njk' %}
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="App-footer Grid-row">
+        {% include 'Footer.njk' %}
+    </div>
+</div>

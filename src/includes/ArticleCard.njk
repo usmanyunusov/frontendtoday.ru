@@ -1,0 +1,12 @@
+<article class="ArticleCard-root Grid-row">
+    <time class="ArticleCard-date Caption-size_m" datetime="{{ article.date | isoDate }}">
+        {{ article.date | ruDate }}
+    </time>
+    <div class="ArticleCard-content">
+        <h3 class="ArticleCard-title">
+            <a class="ArticleCard-link Heagin-size_m" href="{{ article.url }}">
+                {{ article.data.title }}
+            </a>
+        </h3>
+    </div>
+</article>

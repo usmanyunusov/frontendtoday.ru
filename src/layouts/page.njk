@@ -21,11 +21,11 @@
 
         <link rel="manifest" href="/manifest.json">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="{{ resource.css.path }}">
     </head>
     <body class="light">
         {{ content | safe }}
-        <script async src="/scripts/scripts.js"></script>
+        <script async src="{{ resource.js.path }}"></script>
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <symbol id="icon-svg-telegram" viewBox="0 0 32 32">

@@ -15,7 +15,7 @@ a {
 }
 
 :focus {
-    outline: 3px dotted #1A237E!important;
+    outline: 3px dotted #1a237e !important;
 }
 
 .App-root {
@@ -72,7 +72,7 @@ a {
 }
 
 .Logo-text span:last-child {
-    font-size: .7em;
+    font-size: 0.7em;
     letter-spacing: 1px;
     font-weight: 400;
 }
@@ -88,7 +88,6 @@ a {
 .Logo-root:hover .Logo-text[lang="en"] {
     display: flex;
 }
-
 
 .Articles-root {
     margin-bottom: 2em;
@@ -221,7 +220,7 @@ a {
     line-height: 26px;
     font-family: "Lora", sans-serif;
     font-weight: normal;
-    margin-top: 48px;
+    margin-top: 32px;
     margin-bottom: 32px;
 }
 
@@ -263,7 +262,7 @@ a {
 }
 
 .Article-content code {
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
     font-size: 0.8em;
     color: var(--inlineCode-text);
     background-color: var(--inlineCode-bg);
@@ -319,7 +318,7 @@ a {
     }
 }
 
-@media(min-width: 46em) {
+@media (min-width: 46em) {
     .ArticleCard-root {
         flex-direction: row;
     }
@@ -327,5 +326,21 @@ a {
     .ArticleCard-date {
         padding-right: 16px;
         margin-bottom: 0;
+    }
+}
+
+.Article {
+    &-hero {
+        display: block;
+        align-self: center;
+        width: 100%;
+        height: auto;
+
+        &Image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
     }
 }

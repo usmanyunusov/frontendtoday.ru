@@ -1,24 +1,43 @@
+const chalk = require('chalk');
+
 const fs = require('fs');
 const htmlmin = require('html-minifier');
 const markdown = require('markdown-it')({ html: true });
 const prettydata = require('pretty-data');
-const readingTime = require('eleventy-plugin-reading-time');
-
+const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 
 module.exports = (config) => {
+    console.log(chalk.black.bgGreen('Eleventy is building, please wait…'));
+
+    // ----------------------------------------------------------------------------
+    // COPY FILES
+    // ----------------------------------------------------------------------------
     config.addPassthroughCopy('src/favicon.ico');
     config.addPassthroughCopy('src/manifest.json');
     config.addPassthroughCopy('src/fonts');
-    config.addPassthroughCopy('src/images');
-    config.addPassthroughCopy('src/scripts');
-    config.addPassthroughCopy('src/styles');
+    config.addPassthroughCopy('src/**/*.(jpg|png|svg|mp4|webm)');
 
-    config.addPlugin(readingTime);
 
+    // ----------------------------------------------------------------------------
+    // WATCH FILES
+    // ----------------------------------------------------------------------------
+    // config.addWatchTarget('src/scripts');
+    // config.addWatchTarget('src/styles');
+
+    config.addPlugin(cacheBuster({
+        outputDirectory: 'dist',
+    }));
+
+    // ----------------------------------------------------------------------------
+    // SHORTCODES
+    // ----------------------------------------------------------------------------
     config.addPairedShortcode('markdown', (content) => {
         return markdown.render(content);
     });
 
+    // ----------------------------------------------------------------------------
+    // FILTERS
+    // ----------------------------------------------------------------------------
     config.addFilter('length', (path) => {
         const stats = fs.statSync(path);
 
@@ -37,7 +56,7 @@ module.exports = (config) => {
     config.addFilter('isoDate', (value) => {
         return value.toISOString();
     });
-    
+
     config.addFilter('ruDate', (value) => {
         return value.toLocaleString('ru', {
             year: 'numeric',
@@ -46,6 +65,9 @@ module.exports = (config) => {
         }).replace(' г.', '');
     });
 
+    // ----------------------------------------------------------------------------
+    // TRANSFORMS
+    // ----------------------------------------------------------------------------
     config.addTransform('htmlmin', (content, outputPath) => {
         if (outputPath && outputPath.endsWith('.html')) {
             const result = htmlmin.minify(
@@ -69,6 +91,10 @@ module.exports = (config) => {
         return content;
     });
 
+    config.setDataDeepMerge(true);
+    config.setUseGitIgnore(false);
+
+    // https://www.11ty.io/docs/config/#configuration-options
     return {
         dir: {
             input: 'src',

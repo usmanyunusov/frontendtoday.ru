@@ -1,3 +1,5 @@
+import '../styles/all.scss';
+
 (function () {
     var switcher = document.querySelector('.Switch-root');
 

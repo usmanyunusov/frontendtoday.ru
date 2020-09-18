@@ -22,6 +22,13 @@ layout: page.njk
                         {{ author.name }}
                     </a>
                 </p>
+
+                {% if hero %}
+                    <div class="Article-hero">
+                        <img src="{{ hero.src }}" class="Article-heroImage" alt="{% if hero.alt %}{{ hero.alt }}{% endif %}">
+                    </div>
+                {% endif %}
+
                 <div class="Article-content">
                     {{ content | safe }}
                 </div>

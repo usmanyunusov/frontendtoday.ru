@@ -22,7 +22,7 @@ jobs:
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       # Build
-      - run: npm ci
+      - run: yarn install
       - run: npm run build
       # Deploy
       - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . udyunusov@frontendtoday.ru:/var/www/frontendtoday.ru/html/

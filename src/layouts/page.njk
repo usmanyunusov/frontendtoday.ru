@@ -19,6 +19,9 @@
         {% include 'OpenGraph.njk' %}
         {% include 'Icons.njk' %}
 
+        <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="anonymous">
+        <link rel="preload" href="{{ resource.css.path }}" as="style">
+
         <link rel="manifest" href="/manifest.json">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ resource.css.path }}">

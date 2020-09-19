@@ -1,6 +1,6 @@
 ---
 title: 'История флексбокс (-moz-box, -ms-flexbox, -webkit-flex)'
-date: 2020-09-01
+date: 2020-09-19
 author:
     name: Usman Yunusov
     url: https://twitter.com/usmanyunusov

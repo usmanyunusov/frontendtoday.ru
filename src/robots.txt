@@ -1,0 +1,17 @@
+User-agent: Yandex
+Disallow: *?
+Allow: /
+Allow: *.css
+Allow: *.js
+Host: https://frontendtoday.ru
+
+User-agent: Googlebot
+Disallow: *?
+Allow: /
+Sitemap: https://frontendtoday.ru/sitemap.xml
+
+User-agent: *
+Disallow: *?
+Allow: /
+Allow: *.js
+Allow: *.css

@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const { DateTime } = require("luxon");
 
 const fs = require('fs');
 const htmlmin = require('html-minifier');
@@ -13,6 +14,7 @@ module.exports = (config) => {
     // COPY FILES
     // ----------------------------------------------------------------------------
     config.addPassthroughCopy('src/favicon.ico');
+    config.addPassthroughCopy('src/robots.txt');
     config.addPassthroughCopy('src/manifest.json');
     config.addPassthroughCopy('src/fonts');
     config.addPassthroughCopy('src/**/*.(jpg|png|svg|mp4|webm)');
@@ -54,27 +56,11 @@ module.exports = (config) => {
     });
 
     config.addFilter('isoDate', (value) => {
-        return value.toISOString();
+        return DateTime.fromJSDate(value, { zone: 'utc' }).toISO();
     });
 
     config.addFilter('ruDate', (value) => {
-        const months = [
-            'января',
-            'февраля',
-            'марта',
-            'апреля',
-            'мая',
-            'июня',
-            'июля',
-            'августа',
-            'сентября',
-            'октября',
-            'ноября',
-            'декабря',
-        ];
-        
-        let date = new Date(value);
-        return `${date.getUTCDate()} ${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+        return DateTime.fromJSDate(value).setLocale('ru').toFormat('dd MMMM yyyy');
     });
 
     // ----------------------------------------------------------------------------

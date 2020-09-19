@@ -60,7 +60,23 @@ module.exports = (config) => {
     });
 
     config.addFilter('ruDate', (value) => {
-        return DateTime.fromJSDate(value).setLocale('ru').toFormat('dd MMMM yyyy');
+        const months = [
+            'января',
+            'февраля',
+            'марта',
+            'апреля',
+            'мая',
+            'июня',
+            'июля',
+            'августа',
+            'сентября',
+            'октября',
+            'ноября',
+            'декабря',
+        ];
+
+        let date = new Date(value);
+        return `${date.getUTCDate()} ${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
     });
 
     // ----------------------------------------------------------------------------

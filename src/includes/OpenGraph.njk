@@ -4,7 +4,7 @@
 <meta property="og:url" content="{{ site.paths.site }}{{ page.url }}">
 
 {% if hero %}
-    <meta property="og:image" content="{{ page.url ~ hero.src }}">
+    <meta property="og:image" content="{{ site.paths.site ~ page.url ~ hero.src }}">
 {% else %}
     <meta property="og:image" content="{{ site.paths.social }}">
 {% endif %}
@@ -15,7 +15,7 @@
 <meta name="twitter:site" content="{{ site.paths.site }}{{ page.url }}">
 
 {% if hero %}
-    <meta name="twitter:image" content="{{ page.url ~ hero.src }}">
+    <meta name="twitter:image" content="{{ site.paths.site ~ page.url ~ hero.src }}">
 {% else %}
     <meta name="twitter:image" content="{{ site.paths.social }}">
 {% endif %}

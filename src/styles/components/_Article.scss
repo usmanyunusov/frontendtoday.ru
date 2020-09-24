@@ -1,0 +1,118 @@
+.Article-content {
+    font-size: 16px;
+    line-height: 26px;
+    font-family: "Lora", sans-serif;
+    font-weight: normal;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.Article-content a {
+    color: var(--link_color);
+}
+
+.Article-content a:hover {
+    text-decoration: none;
+}
+
+.Article-content p {
+    margin: 1em 0 0 0;
+}
+
+.Article-content ul,
+.Article-content ol {
+    padding: 0;
+    margin: 1em 0 2em;
+    list-style: none;
+}
+
+.Article-content li {
+    position: relative;
+    margin-top: 0.5em;
+}
+
+.Article-content ul > li {
+    padding-left: 1.2em;
+}
+
+.Article-content ul > li::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    content: "—";
+}
+
+.Article-content code {
+    font-family: "Fira Code", monospace;
+    font-size: 0.8em;
+    color: var(--inlineCode-text);
+    background-color: var(--inlineCode-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    white-space: nowrap;
+    line-height: 20px;
+}
+
+.Article-content a:visited {
+    color: var(--link_visited_color);
+}
+
+.Article-time {
+    display: inline-block;
+    margin-top: 16px;
+}
+
+.Article-edit {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 0.9em;
+}
+
+.Article-edit a {
+    color: var(--fg);
+    font-size: 1em;
+}
+
+.Article-edit a:hover {
+    text-decoration: none;
+}
+
+.Article-author {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 0.9em;
+}
+
+.Article-author a {
+    color: var(--fg);
+    font-size: 1em;
+}
+
+.Article-author a:hover {
+    text-decoration: none;
+}
+
+.Article {
+    &-hero {
+        display: block;
+        align-self: center;
+        width: 100%;
+        height: auto;
+
+        &Image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+    }
+}
+
+@media (min-width: 1240px) {
+    .Article-content {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}

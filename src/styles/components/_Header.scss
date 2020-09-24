@@ -1,0 +1,12 @@
+.Header-logo {
+    display: flex;
+    cursor: pointer;
+}
+
+.Header-logo svg {
+    height: 100%;
+    width: 100%;
+    width: 3em;
+    height: 3em;
+    border-radius: 0 15px 0 15px;
+}

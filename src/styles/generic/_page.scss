@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Stem", sans-serif;
+    font-size: 100%;
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+a {
+    color: inherit;
+    font-size: inherit;
+}
+
+:focus {
+    outline: 3px dotted var(--color_outline) !important;
+}
+
+.dark .Theme-light {
+    display: none;
+}
+
+.dark .Theme-dark {
+    display: inline-block;
+}
+
+.light .Theme-light {
+    display: inline-block;
+}
+
+.light .Theme-dark {
+    display: none;
+}

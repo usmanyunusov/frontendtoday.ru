@@ -1,0 +1,46 @@
+.ArticleCard-root {
+    position: relative;
+    text-decoration: none;
+    padding: 1em 0;
+    flex-direction: column;
+}
+
+.ArticleCard-date {
+    padding-right: 0;
+    margin-bottom: 4px;
+    flex: 1;
+}
+
+.ArticleCard-content {
+    flex: 4;
+    align-self: flex-start;
+}
+
+.ArticleCard-title {
+    margin: 0;
+}
+
+.ArticleCard-link:hover {
+    text-decoration: underline;
+}
+
+.ArticleCard-link::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    content: "";
+}
+
+@media (min-width: 46em) {
+    .ArticleCard-root {
+        flex-direction: row;
+    }
+
+    .ArticleCard-date {
+        padding-right: 16px;
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,14 @@
+.Icon-svg {
+    vertical-align: middle;
+    pointer-events: none;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+
+    &--telegram {
+        color: var(--fg);
+    }
+}

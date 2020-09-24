@@ -1,0 +1,12 @@
+.HeadingNews-size_m {
+    font-size: 2em;
+    text-decoration: none;
+    color: var(--fg);
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0;
+
+    @media (min-width: 1240px) {
+        font-size: 2.3em;
+    }
+}

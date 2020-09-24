@@ -1,0 +1,25 @@
+.Grid-row {
+    display: flex;
+}
+
+.Grid-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.Grid-column > *,
+.Grid-row > * {
+    width: 100%;
+}
+
+.Grid-row--jcsb {
+    justify-content: space-between;
+}
+
+.Grid-row--jcsb > * {
+    width: auto;
+}
+
+.Grid-row--center {
+    align-items: center;
+}

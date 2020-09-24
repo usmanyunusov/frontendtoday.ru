@@ -1,0 +1,16 @@
+.App-root {
+    min-height: 100%;
+    max-width: 46em;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.App-main {
+    margin: 2em 0;
+    flex: 1;
+}
+
+.App-footer {
+    padding-top: 6px;
+    border-top: 1px solid var(--lighter-gray);
+}

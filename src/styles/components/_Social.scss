@@ -1,0 +1,10 @@
+.Social-link {
+    display: flex;
+    color: var(--fg);
+    padding: 0.5em;
+    border-radius: var(--radius);
+}
+
+.Social-link:hover {
+    background: var(--lighter-gray);
+}

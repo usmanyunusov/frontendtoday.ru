@@ -3,6 +3,14 @@
     cursor: pointer;
 }
 
+.Header {
+    &-root {
+        max-width: 46em;
+        margin: 0 auto;
+        padding: 1em;
+    }
+}
+
 .Header-logo svg {
     height: 100%;
     width: 100%;

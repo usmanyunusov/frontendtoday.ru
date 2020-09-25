@@ -3,11 +3,24 @@
     max-width: 46em;
     margin: 0 auto;
     padding: 1em;
+    padding-top: 80px;
 }
 
 .App-main {
     margin: 2em 0;
     flex: 1;
+}
+
+.App-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateZ(0);
+    z-index: 99;
+    background-color: var(--bgHeader);
+    border-bottom: 1px solid var(--lighter-gray);
+    backdrop-filter: blur(20px);
 }
 
 .App-footer {

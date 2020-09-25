@@ -7,27 +7,29 @@
 .light {
     --fg: #212121;
     --bg: #ffffff;
-    --lighter-gray: #f5f5f5;
-    --inlineCode-bg: #fff3e0;
-    --inlineCode-text: #212121;
-    --link_color: #3420a3;
-    --link_visited_color: #ad1457;
-    --color_logo_bg: #3420a3;
-    --color_logo_txt: #ffffff;
-    --color_footer: #f5f5f5;
-    --color_outline: #1a237e;
+    --bgHeader: rgba(255, 255, 255, .8);
+    --lighter-gray: rgb(245, 245, 245);
+    --inlineCode-bg: rgb(255, 243, 224);
+    --inlineCode-text: rgb(33, 33, 33);
+    --link_color: rgb(52, 32, 163);
+    --link_visited_color: rgb(173, 20, 87);
+    --color_logo_bg: rgb(52, 32, 163);
+    --color_logo_txt: rgb(255, 255, 255);
+    --color_footer: rgb(245, 245, 245);
+    --color_outline: rgb(26, 35, 126);
 }
 
 .dark {
-    --bg: #212121;
-    --fg: #ffffff;
-    --lighter-gray: #424242;
-    --inlineCode-bg: #424242;
-    --inlineCode-text: #ffffff;
-    --link_color: #ffcc80;
-    --link_visited_color: #bdbdbd;
-    --color_logo_bg: #ffffff;
-    --color_logo_txt: #3420a3;
-    --color_footer: #141414;
-    --color_outline: #f48fb1;
+    --bg: rgb(33, 33, 33);
+    --fg: rgb(255, 255, 255);
+    --bgHeader: rgba(33, 33, 33, 0.8);
+    --lighter-gray: rgb(66, 66, 66);
+    --inlineCode-bg: rgb(66, 66, 66);
+    --inlineCode-text: rgb(255, 255, 255);
+    --link_color: rgb(255, 204, 128);
+    --link_visited_color: rgb(189, 189, 189);
+    --color_logo_bg: rgb(255, 255, 255);
+    --color_logo_txt: rgb(52, 32, 163);
+    --color_footer: rgb(20, 20, 20);
+    --color_outline: rgb(244, 143, 177);
 }

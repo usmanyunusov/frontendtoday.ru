@@ -7,7 +7,7 @@ export default function Switcher() {
 
     function onClick() {
         alert.classList.toggle('Switch-alertShow');
-        document.querySelector(`input[value="${MyStorage.get('theme') || 'theme-device'}"]`).focus();
+        document.querySelector(`input[value="${MyStorage.get('themes') || 'theme-device'}"]`).focus();
     }
 
     function addEvents() {
@@ -16,7 +16,7 @@ export default function Switcher() {
             radio.addEventListener('change', (e) => {
                 document.body.removeAttribute('class');
                 document.body.classList.add(e.target.value);
-                MyStorage.set('theme', e.target.value);
+                MyStorage.set('themes', e.target.value);
             });
         });
 
@@ -35,8 +35,8 @@ export default function Switcher() {
 
     function main() {
         document.body.removeAttribute('class');
-        document.body.classList.add(MyStorage.get('theme') || 'theme-device');
-        document.querySelector(`input[value="${MyStorage.get('theme') || 'theme-device'}"]`).setAttribute('checked', true);
+        document.body.classList.add(MyStorage.get('themes') || 'theme-device');
+        document.querySelector(`input[value="${MyStorage.get('themes') || 'theme-device'}"]`).setAttribute('checked', true);
         addEvents();
     }
 

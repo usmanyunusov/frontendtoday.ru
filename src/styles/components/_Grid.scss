@@ -1,25 +1,30 @@
-.Grid-row {
-    display: flex;
-}
+.Grid {
+    &-row {
+        display: flex;
 
-.Grid-column {
-    display: flex;
-    flex-direction: column;
-}
+        & > * {
+            width: 100%;
+        }
 
-.Grid-column > *,
-.Grid-row > * {
-    width: 100%;
-}
+        &--jcsb {
+            justify-content: space-between;
 
-.Grid-row--jcsb {
-    justify-content: space-between;
-}
+            & > * {
+                width: auto;
+            }
+        }
 
-.Grid-row--jcsb > * {
-    width: auto;
-}
+        &--center {
+            align-items: center;
+        }
+    }
 
-.Grid-row--center {
-    align-items: center;
+    &-column {
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+            width: 100%;
+        }
+    }
 }

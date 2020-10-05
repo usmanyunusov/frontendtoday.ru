@@ -9,12 +9,21 @@
         margin: 0 auto;
         padding: 1em;
     }
-}
 
-.Header-logo svg {
-    height: 100%;
-    width: 100%;
-    width: 3em;
-    height: 3em;
-    border-radius: 0 15px 0 15px;
+    &-logo {
+        display: flex;
+        cursor: pointer;
+
+        svg {
+            height: 100%;
+            width: 100%;
+            width: 3em;
+            height: 3em;
+            border-radius: 0 15px 0 15px;
+        }
+    }
+
+    &-theme {
+        position: relative;
+    }
 }

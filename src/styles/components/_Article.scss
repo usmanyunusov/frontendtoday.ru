@@ -3,8 +3,7 @@
     line-height: 26px;
     font-family: "Lora", sans-serif;
     font-weight: normal;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 1.5em;
 }
 
 .Article-content a {
@@ -14,15 +13,18 @@
 .Article-content a:hover {
     text-decoration: none;
 }
-
 .Article-content p {
-    margin: 1em 0 0 0;
+    margin: 0;
+}
+
+.Article-content p:not(:last-child) {
+    margin-bottom: 1.5em;
 }
 
 .Article-content ul,
 .Article-content ol {
     padding: 0;
-    margin: 1em 0 2em;
+    margin: 1.5em 0 2em;
     list-style: none;
 }
 
@@ -55,9 +57,9 @@
     line-height: 20px;
 }
 
-.Article-content a:visited {
-    color: var(--link_visited_color);
-}
+// .Article-content a:visited {
+//     color: var(--link_visited_color);
+// }
 
 .Article-time {
     display: inline-block;
@@ -106,6 +108,7 @@
             width: 100%;
             height: 100%;
             vertical-align: top;
+            filter: var(--cover_filter);
         }
     }
 }

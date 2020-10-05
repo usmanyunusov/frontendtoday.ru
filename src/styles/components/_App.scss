@@ -17,10 +17,9 @@
     left: 0;
     right: 0;
     transform: translateZ(0);
-    z-index: 99;
+    z-index: 1;
     background-color: var(--bgHeader);
     border-bottom: 1px solid var(--lighter-gray);
-    backdrop-filter: blur(20px);
 }
 
 .App-footer {

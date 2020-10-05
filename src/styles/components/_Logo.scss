@@ -1,40 +1,44 @@
-.Logo-root {
-    display: flex;
-    text-decoration: none;
-    color: var(--fg);
-    font-weight: 900;
-}
+.Logo {
+    &-root {
+        display: flex;
+        text-decoration: none;
+        color: var(--fg);
+        font-weight: 900;
+    }
 
-.Logo-text {
-    margin: 0;
-    line-height: 1;
-    display: flex;
-    margin-left: 0.5em;
-    justify-content: center;
-    width: 100px;
-    flex-direction: column;
-    text-transform: uppercase;
-}
+    &-text {
+        margin: 0;
+        line-height: 1;
+        display: flex;
+        margin-left: 0.5em;
+        justify-content: center;
+        width: 100px;
+        flex-direction: column;
+        text-transform: uppercase;
 
-.Logo-text span:first-child {
-    font-size: 1em;
-    font-weight: 700;
-}
+        span {
+            &:first-child {
+                font-size: 1em;
+                font-weight: 700;
+            }
 
-.Logo-text span:last-child {
-    font-size: 0.7em;
-    letter-spacing: 1px;
-    font-weight: 400;
-}
+            &:last-child {
+                font-size: 0.7em;
+                letter-spacing: 1px;
+                font-weight: 400;
+            }
+        }
 
-.Logo-text[lang="en"] {
-    display: none;
-}
+        &[lang="en"] {
+            display: none;
+        }
+    }
 
-.Logo-root:hover .Logo-text[lang="ru"] {
-    display: none;
-}
+    &-root:hover &-text[lang="ru"] {
+        display: none;
+    }
 
-.Logo-root:hover .Logo-text[lang="en"] {
-    display: flex;
+    &-root:hover &-text[lang="en"] {
+        display: flex;
+    }
 }

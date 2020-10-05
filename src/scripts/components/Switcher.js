@@ -1,29 +1,43 @@
 import MyStorage from './../utils/MyStorage';
 
 export default function Switcher() {
-    var switcher = document.querySelector('.Switch-root');
-
+    const switcher = document.querySelector('.Switch-button');
+    const alert = document.querySelector('.Switch-alert');
     switcher && switcher.addEventListener('click', onClick);
 
     function onClick() {
-        MyStorage.set('theme', toggleTheme());
+        alert.classList.toggle('Switch-alertShow');
+        document.querySelector(`input[value="${MyStorage.get('theme')}"]`).focus();
     }
 
-    function toggleTheme() {
-        if (document.body.classList.contains('light')) {
-            document.body.classList.remove('light');
-            document.body.classList.add('dark');
-            return 'dark';
-        } else {
-            document.body.classList.remove('dark');
-            document.body.classList.add('light');
-            return 'light';
-        }
+    function addEvents() {
+        let inputs = document.querySelectorAll('input[name="themes"]');
+        inputs.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                document.body.removeAttribute('class');
+                document.body.classList.add(e.target.value);
+                MyStorage.set('theme', e.target.value);
+            });
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.keyCode === 27) {
+                alert.classList.remove('Switch-alertShow');
+            }
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".Switch-root") && alert.classList.contains('Switch-alertShow')) {
+                alert.classList.remove('Switch-alertShow');
+            }
+        });
     }
 
     function main() {
-        document.body.classList.remove('light');
-        document.body.classList.add(MyStorage.get('theme') || 'light');
+        document.body.removeAttribute('class');
+        document.body.classList.add(MyStorage.get('theme'));
+        document.querySelector(`input[value="${MyStorage.get('theme')}"]`).setAttribute('checked', true);
+        addEvents();
     }
 
     main();

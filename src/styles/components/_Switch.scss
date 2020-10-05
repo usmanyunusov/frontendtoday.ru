@@ -1,13 +1,115 @@
-.Switch-root {
-    outline: 0;
-    padding: 0.5em;
-    display: flex;
-    cursor: pointer;
-    background: none;
-    border: none;
-    border-radius: var(--radius);
-}
+.Switch {
+    &-button {
+        outline: 0;
+        padding: 0.5em;
+        display: flex;
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-radius: var(--radius);
+        width: 46px;
+        height: 46px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-.Switch-root:hover {
-    background: var(--lighter-gray);
+        &:hover {
+            background-color: var(--lighter-gray);
+        }
+    }
+
+    &-alert {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width: 250px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background-color: var(--bg);
+        margin-top: 8px;
+        box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+        padding: 8px;
+        z-index: 4;
+        list-style: none;
+
+        &Show {
+            display: flex;
+        }
+    }
+
+    &-label {
+        position: relative;
+        display: flex;
+        user-select: none;
+    }
+
+    &-input {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        margin-right: -0.5em;
+        position: absolute;
+
+        &:checked ~ .Switch-radio .Switch-customRadio {
+            border-color: var(--link_color);
+
+            &:after {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &:focus ~ .Switch-radio {
+            z-index: 1;
+            position: relative;
+            transition: outline 0.1s ease-in-out;
+            outline-style: dotted !important;
+            outline-width: 2px !important;
+            outline-color: var(--color_outline) !important;
+        }
+    }
+
+    &-radio {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 13px;
+        cursor: pointer;
+        border-radius: var(--radius);
+        transition: background-color 0.1s ease-in-out;
+
+        &:hover {
+            background-color: var(--lighter-gray);
+        }
+    }
+
+    &-inputText {
+        font-size: 14px;
+    }
+
+    &-customRadio {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background-color: var(--bg);
+        border-radius: 50%;
+        border: 2px solid var(--fg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--link_color);
+            border-radius: 50%;
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
 }

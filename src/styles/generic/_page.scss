@@ -11,11 +11,20 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
     font-family: "Stem", sans-serif;
     font-size: 100%;
+    width: 100%;
     color: var(--fg);
     background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
 }
 
 a {
@@ -24,21 +33,14 @@ a {
 }
 
 :focus {
-    outline: 3px dotted var(--color_outline) !important;
+    position: relative;
+    transition: outline .1s ease-in-out;
+    outline-style: dotted !important;
+    outline-width: 2px !important;
+    outline-color: var(--color_outline) !important;
+    outline-offset: 2px;
 }
 
-.dark .Theme-light {
-    display: none;
-}
-
-.dark .Theme-dark {
+.Theme-settings {
     display: inline-block;
-}
-
-.light .Theme-light {
-    display: inline-block;
-}
-
-.light .Theme-dark {
-    display: none;
 }

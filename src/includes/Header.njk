@@ -19,13 +19,41 @@
     </div>
 
     <div class="Header-theme">
-        <button class="Switch-root">
-            <svg class="Theme-light" width="30" height="30" fill="var(--fg)">
-                <use xlink:href="#icon-svg-theme-light"></use>
-            </svg>
-            <svg class="Theme-dark" width="30" height="30" fill="var(--fg)">
-                <use xlink:href="#icon-svg-theme-dark"></use>
-            </svg>
-        </button>
+        <div class="Switch-root">
+            <button class="Switch-button">
+                <svg class="Theme-settings" width="24" height="24" fill="var(--fg)">
+                    <use xlink:href="#icon-svg-settings"></use>
+                </svg>
+            </button>
+            <UL class="Switch-alert" role="group" aria-labelledby="themes-group-label">
+                <li>
+                    <label class="Switch-label" for="light">
+                        <input class="Switch-input" id="light" type="radio" tabindex="0" name="themes" value="theme-light">
+                        <span class="Switch-radio">
+                            <span class="Switch-inputText">Дневной режим</span>
+                            <span class="Switch-customRadio"></span>
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="Switch-label" fot="dark">
+                        <input class="Switch-input" id="dark" type="radio" tabindex="0" name="themes" value="theme-dark">
+                        <span class="Switch-radio">
+                            <span class="Switch-inputText">Ночной режим</span>
+                            <span class="Switch-customRadio"></span>
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="Switch-label" for="device">
+                        <input class="Switch-input" id="device" type="radio" tabindex="0" name="themes" value="theme-device">
+                        <span class="Switch-radio">
+                            <span class="Switch-inputText">Системный</span>
+                            <span class="Switch-customRadio"></span>
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </div>
     </div>
 </header>

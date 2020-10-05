@@ -7,7 +7,7 @@ export default function Switcher() {
 
     function onClick() {
         alert.classList.toggle('Switch-alertShow');
-        document.querySelector(`input[value="${MyStorage.get('theme')}"]`).focus();
+        document.querySelector(`input[value="${MyStorage.get('theme') || 'theme-device'}"]`).focus();
     }
 
     function addEvents() {
@@ -35,8 +35,8 @@ export default function Switcher() {
 
     function main() {
         document.body.removeAttribute('class');
-        document.body.classList.add(MyStorage.get('theme'));
-        document.querySelector(`input[value="${MyStorage.get('theme')}"]`).setAttribute('checked', true);
+        document.body.classList.add(MyStorage.get('theme') || 'theme-device');
+        document.querySelector(`input[value="${MyStorage.get('theme') || 'theme-device'}"]`).setAttribute('checked', true);
         addEvents();
     }
 

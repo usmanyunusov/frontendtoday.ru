@@ -19,7 +19,7 @@ permalink: index.html
                         <span>2020</span>
                     </p>
                     <ul class="Articles-list Grid-column">
-                        {%- for article in collections.article -%}
+                        {%- for article in collections.article | reverse -%}
                             <li class="Articles-item">
                                 {% include 'ArticleCard.njk' %}
                             </li>

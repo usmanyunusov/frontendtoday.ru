@@ -9,11 +9,11 @@
         list-style: none;
     }
 
-    &-item {
-        &:not(:last-child) {
-            margin-bottom: 1em;
-        }
-    }
+    // &-item {
+    //     &:not(:last-child) {
+    //         margin-bottom: 1em;
+    //     }
+    // }
 
     &-year {
         border-bottom: 1px solid var(--lighter-gray);

@@ -24,4 +24,12 @@
         justify-content: center;
         margin-top: 16px;
     }
+
+    &-caption {
+        display: flex;
+        font-size: 12px;
+        font-weight: 400;
+        justify-content: center;
+        margin-top: 8px;
+    }
 }

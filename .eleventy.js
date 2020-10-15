@@ -6,6 +6,7 @@ const htmlmin = require('html-minifier');
 const markdown = require('markdown-it')({ html: true });
 const prettydata = require('pretty-data');
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (config) => {
     console.log(chalk.black.bgGreen('Eleventy is building, please wait…'));
@@ -103,6 +104,11 @@ module.exports = (config) => {
         }
 
         return content;
+    });
+
+    config.addPlugin(syntaxHighlight, {
+        alwaysWrapLineHighlights: false,
+        trim: true
     });
 
     config.setDataDeepMerge(true);

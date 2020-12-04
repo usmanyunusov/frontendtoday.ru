@@ -19,6 +19,10 @@
         {% include 'OpenGraph.njk' %}
         {% include 'Icons.njk' %}
 
+        {% if page.url != '/' %}
+            <link rel="canonical" href="{{ site.paths.site }}{{ page.url }}">
+        {% endif %}
+
         <meta name="yandex-verification" content="e078083659aa8741"/>
         <meta name="google-site-verification" content="OlAda12niqBJ4Rj9lsMp432Y-LEs8D0Ew2NYbMAWpM0"/>
 

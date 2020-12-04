@@ -32,6 +32,13 @@ layout: page.njk
                 <div class="Article-content">
                     {{ content | safe }}
                 </div>
+
+                <div class="Article-comments">
+                    <div class="Article-commentsTitle">Комментарии</div>
+                    <div class="Article-commentsWidget">
+                        <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-discussion="frontend_today" data-comments-limit="5" data-color="3420A3"></script>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

@@ -2,8 +2,11 @@ name: Deploy
 
 on:
   repository_dispatch:
-    branches:
-      - master
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
   # push:
   #   branches:
   #     - master

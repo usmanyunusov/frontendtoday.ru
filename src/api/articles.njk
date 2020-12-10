@@ -1,0 +1,13 @@
+---
+permalink: /api/articles.json
+eleventyExcludeFromCollections: true
+---
+[
+    {%- for article in collections.article | reverse -%}
+        {% set data = article.data %}
+        {
+            "title": "{{ data.title }}",
+            "url": "{{ site.paths.site ~ article.url }}"
+        }{{ '' if loop.last else ',' }}
+    {%- endfor -%}
+]

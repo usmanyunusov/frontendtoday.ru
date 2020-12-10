@@ -26,7 +26,7 @@ hero:
 - Экономия заряда батареи;
 - Добавление акцента;
 
-А как на счет веба? Он так же начал потихоньку переходит на темную сторону. У большенство сайтов появилась кнопка переключения ночного и дневного режима. Для реализации такого функционала обычно используются: 
+А как на счет веба? Он так же начал потихоньку переходит на темную сторону. У большенство сайтов появилась кнопка переключения ночного и дневного режима. Для реализации такого функционала обычно используются:
 
 - Отдельные классы;
 - Отдельные таблицы стилей;
@@ -70,7 +70,7 @@ const button = document.querySelector('.button');
 const currentTheme = localStorage.getItem('theme') || 'light';
 
 button.addEventListener('click', function () {
-    const theme = localStorage.getItem('theme'); 
+    const theme = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
     localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light');
 });

@@ -82,7 +82,7 @@
 
 .Article-content code:not([class*='language-']) {
   font-family: 'Fira Code', monospace;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--inlineCode-text);
   background-color: #fff3e0;
   padding: 0.1rem 0.4rem;
@@ -91,7 +91,7 @@
   color: var(--color_text_code);
 
   @media (min-width: 960px) {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 }
 

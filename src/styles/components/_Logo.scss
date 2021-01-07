@@ -1,44 +1,36 @@
 .Logo {
-    &-root {
-        display: flex;
-        text-decoration: none;
-        color: var(--fg);
-        font-weight: 900;
+  &-root {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+
+    svg {
+        min-width: 5rem;
+        min-height: 5rem;
+        width: 5rem;
+        height: 5rem;
+        vertical-align: top;
+      }
+  }
+
+  &-text {
+    font-size: 22px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    padding-left: .5rem;
+    text-transform: uppercase;
+
+    span[lang='en'] {
+      display: none;
     }
+  }
 
-    &-text {
-        margin: 0;
-        line-height: 1;
-        display: flex;
-        margin-left: 0.5em;
-        justify-content: center;
-        width: 100px;
-        flex-direction: column;
-        text-transform: uppercase;
+  &-root:hover &-text span[lang='ru'] {
+    display: none;
+  }
 
-        span {
-            &:first-child {
-                font-size: 1em;
-                font-weight: 700;
-            }
-
-            &:last-child {
-                font-size: 0.7em;
-                letter-spacing: 1px;
-                font-weight: 400;
-            }
-        }
-
-        &[lang="en"] {
-            display: none;
-        }
-    }
-
-    &-root:hover &-text[lang="ru"] {
-        display: none;
-    }
-
-    &-root:hover &-text[lang="en"] {
-        display: flex;
-    }
+  &-root:hover &-text span[lang='en'] {
+    display: flex;
+  }
 }

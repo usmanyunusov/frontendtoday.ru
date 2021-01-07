@@ -2,60 +2,35 @@
 :root,
 .theme-device,
 .theme-light {
-    --color-grey-lighter: #b1b3b6;
-    --color_yellow: #ffdb01;
-    --radius: 8px;
-    --fg: rgb(33, 33, 33);
-    --bg: rgba(255, 255, 255, 1);
-    --bgHeader: rgba(255, 255, 255, 1);
-    --lighter-gray: rgb(245, 245, 245);
-    --inlineCode-bg: rgb(247, 247, 249);
-    --inlineCode-border: rgb(225, 225, 232);
-    --inlineCode-text: rgb(33, 33, 33);
-    --link_color: rgb(21, 101, 192);
-    --link_visited_color: rgb(173, 20, 87);
-    --color_logo_bg: rgb(52, 32, 163);
-    --color_logo_txt: rgb(255, 255, 255);
-    --color_footer: rgb(245, 245, 245);
-    --color_outline: rgb(26, 35, 126);
-    --cover_filter: 1;
-    --color_text_code: rgb(33, 33, 33);
+  --color-grey-lighter: #b1b3b6;
+  --color_yellow: #ffdb01;
+  --radius: 8px;
+  --fg: rgb(33, 33, 33);
+  --bg: rgba(255, 255, 255, 1);
+  --bgHeader: rgba(255, 255, 255, 1);
+  --lighter-gray: rgb(245, 245, 245);
+  --inlineCode-bg: rgb(247, 247, 249);
+  --inlineCode-border: rgb(225, 225, 232);
+  --inlineCode-text: rgb(33, 33, 33);
+  --link_color: rgb(21, 101, 192);
+  --link_visited_color: rgb(173, 20, 87);
+  --color_logo_bg: rgb(52, 32, 163);
+  --color_logo_txt: rgb(255, 255, 255);
+  --color_footer: rgb(245, 245, 245);
+  --color_outline: rgb(26, 35, 126);
+  --cover_filter: 1;
+  --color_text_code: rgb(33, 33, 33);
 
-    /* Syntax Highlighting */
-    --token: var(--lighter-accent);
-    --comment: #ccc;
-    --keyword: var(--accent);
-    --name: #fff;
-    --highlight: #2e2e2e;
+  /* Syntax Highlighting */
+  --token: var(--lighter-accent);
+  --comment: #ccc;
+  --keyword: var(--accent);
+  --name: #fff;
+  --highlight: #2e2e2e;
 }
 
 @media (prefers-color-scheme: dark) {
-    .theme-device {
-        --bg: rgb(33, 33, 33);
-        --fg: rgba(255, 255, 255, 0.7);
-        --bgHeader: rgba(33, 33, 33, 1);
-        --lighter-gray: rgba(66, 66, 66, 0.7);
-        --inlineCode-bg: rgba(66, 66, 66, 0.7);
-        --inlineCode-text: rgba(255, 255, 255, 0.7);
-        --inlineCode-border: rgb(66, 66, 66);
-        --link_color: rgba(100, 181, 246, 0.7);
-        --link_visited_color: rgba(255, 255, 255, 0.7);
-        --color_logo_bg: rgba(255, 255, 255, 0.7);
-        --color_logo_txt: rgb(33, 33, 33);
-        --color_footer: rgb(20, 20, 20);
-        --color_outline: rgb(244, 143, 177);
-        --cover_filter: 0.6;
-        --color_text_code: rgb(255, 255, 255);
-
-        --token: var(--lighter-accent);
-        --comment: #404040;
-        --keyword: var(--accent);
-        --name: #353535;
-        --highlight: #eaeaea;
-    }
-}
-
-.theme-dark {
+  .theme-device {
     --bg: rgb(33, 33, 33);
     --fg: rgba(255, 255, 255, 0.7);
     --bgHeader: rgba(33, 33, 33, 1);
@@ -77,4 +52,29 @@
     --keyword: var(--accent);
     --name: #353535;
     --highlight: #eaeaea;
+  }
+}
+
+.theme-dark {
+  --bg: rgb(33, 33, 33);
+  --fg: rgba(255, 255, 255, 0.7);
+  --bgHeader: rgba(33, 33, 33, 1);
+  --lighter-gray: rgba(66, 66, 66, 0.7);
+  --inlineCode-bg: rgba(66, 66, 66, 0.7);
+  --inlineCode-text: rgba(255, 255, 255, 0.7);
+  --inlineCode-border: rgb(66, 66, 66);
+  --link_color: rgba(100, 181, 246, 0.7);
+  --link_visited_color: rgba(255, 255, 255, 0.7);
+  --color_logo_bg: rgba(255, 255, 255, 0.7);
+  --color_logo_txt: rgb(33, 33, 33);
+  --color_footer: rgb(20, 20, 20);
+  --color_outline: rgb(244, 143, 177);
+  --cover_filter: 0.6;
+  --color_text_code: rgb(255, 255, 255);
+
+  --token: var(--lighter-accent);
+  --comment: #404040;
+  --keyword: var(--accent);
+  --name: #353535;
+  --highlight: #eaeaea;
 }

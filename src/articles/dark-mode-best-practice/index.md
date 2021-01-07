@@ -9,7 +9,7 @@ tags:
   - article
   - css
   - js
-preview: ''
+preview: 'Темный режим сегодня является одним из самых главных тенденций в современном дизайне пользовательского интерфейса. Операционные системы, браузеры и другие продукты, которыми мы пользуемся сегодня, уже во всю используют эту фичу.'
 hero:
   src: images/1.png
   alt: 'Dark Mode cover'
@@ -30,52 +30,58 @@ hero:
 
 - Отдельные классы;
 - Отдельные таблицы стилей;
-- Пользовательские  свойства;
+- Пользовательские свойства;
 - Серверные скрипты;
 
 В зависимости от требований вашего проекта, вы можете использовать конкретные вышеперечисленные способы, так же их совмещать между собой. На примерах мы будем использовать [пользовательские свойства](https://www.w3.org/TR/css-variables-1/). В начале объявляем основные глобальные цвета и переопределяем их в определенном селекторе.
 
 ```css
 :root {
-	--color-text: #000;
-	--color-back: #fff;
+  --color-text: #000;
+  --color-back: #fff;
 }
 
 :root[data-theme='dark'] {
-	--color-text: #fff;
-	--color-back: #000;
+  --color-text: #fff;
+  --color-back: #000;
 }
 
 body {
-	background-color: var(--color-back);
-	color: var(--color-text);
+  background-color: var(--color-back);
+  color: var(--color-text);
 }
 ```
 
 Остается только написать небольшой js-скрипт, который будет отвечать за изменения значения data-атрибута (в данном случае `data-theme`).
 
 ```js
-const button = document.querySelector('.button');
+const button = document.querySelector('.button')
 
 button.addEventListener('click', function () {
-		let theme = document.documentElement.getAttribute('data-theme');
-		document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
-});
+  let theme = document.documentElement.getAttribute('data-theme')
+  document.documentElement.setAttribute(
+    'data-theme',
+    theme === 'dark' ? 'light' : 'dark',
+  )
+})
 ```
 
 Однако, при каждом обновление страницы, надо будет заново переключаться в нужный режим. Уместно было бы сохранять настройки в браузере, чтобы при следующем посещение нашего сайта показать пользователю тот режим, который он предпочел. Для этого будем использовать [LocalStorage](https://developer.mozilla.org/ru/docs/Web/API/Window/localStorage). Также для этого хорошо подходит [сookies](https://ru.wikipedia.org/wiki/Cookie).
 
 ```js
-const button = document.querySelector('.button');
-const currentTheme = localStorage.getItem('theme') || 'light';
+const button = document.querySelector('.button')
+const currentTheme = localStorage.getItem('theme') || 'light'
 
 button.addEventListener('click', function () {
-    const theme = localStorage.getItem('theme');
-    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
-    localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light');
-});
+  const theme = localStorage.getItem('theme')
+  document.documentElement.setAttribute(
+    'data-theme',
+    theme === 'light' ? 'dark' : 'light',
+  )
+  localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light')
+})
 
-document.documentElement.setAttribute('data-theme', currentTheme);
+document.documentElement.setAttribute('data-theme', currentTheme)
 ```
 
 Теперь все работает как надо. Настройки сохраняются – пользователи радуются.
@@ -90,44 +96,44 @@ document.documentElement.setAttribute('data-theme', currentTheme);
 
 ```css
 :root {
-    --color-text: #000;
-    --color-back: #fff;
+  --color-text: #000;
+  --color-back: #fff;
 }
 
-:root[data-theme="dark"] {
-    --color-text: #fff;
-    --color-back: #000;
+:root[data-theme='dark'] {
+  --color-text: #fff;
+  --color-back: #000;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root[data-theme="device"] {
-        --color-text: #fff;
-        --color-back: #000;
-    }
+  :root[data-theme='device'] {
+    --color-text: #fff;
+    --color-back: #000;
+  }
 }
 
 body {
-    background-color: var(--color-back);
-    color: var(--color-text);
+  background-color: var(--color-back);
+  color: var(--color-text);
 }
 ```
 
 Изменим js-скрипт
 
 ```js
-const inputs = document.querySelectorAll('input[name="theme"]');
-const currentTheme = localStorage.getItem('theme') || 'device';
-const input = document.querySelector(`input[id="${currentTheme}"]`);
+const inputs = document.querySelectorAll('input[name="theme"]')
+const currentTheme = localStorage.getItem('theme') || 'device'
+const input = document.querySelector(`input[id="${currentTheme}"]`)
 
 inputs.forEach((input) => {
-	input.addEventListener('change', (e) => {
-		document.documentElement.setAttribute('data-theme', e.target.id);
-		localStorage.setItem('theme', e.target.id);
-	}
-)});
+  input.addEventListener('change', (e) => {
+    document.documentElement.setAttribute('data-theme', e.target.id)
+    localStorage.setItem('theme', e.target.id)
+  })
+})
 
-document.documentElement.setAttribute('data-theme', currentTheme);
-input.setAttribute('checked', true);
+document.documentElement.setAttribute('data-theme', currentTheme)
+input.setAttribute('checked', true)
 ```
 
 Вуаля, все работает как задумалось. Даже оставили пользователю возможность выбирать предпочитаемую ему тему, при любом режиме в его устройстве.
@@ -137,18 +143,18 @@ input.setAttribute('checked', true);
 Иногда бывает, что HTML-страница загружается и ждет окончание загрузки CSS файла. Вопрос, что будет, если мы изначально выбрали темный режим и сохранили настройки в браузере? Верно, как только загрузятся стили и сработает скрипт, то произойдет резкий переход с белого на черный, так как изначально наша страница имеет белый фон. Для избежания такого эффекта, есть специальный мета-тег [color-scheme](https://www.w3.org/TR/css-color-adjust-1/#color-scheme-prop), который сообщает таблице стилей агента пользователя, какие цветовые схемы ему использовать по умолчанию.
 
 ```html
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark" />
 ```
 
 Данную запись можно установить и в CSS:
 
 ```css
 :root {
-	color-scheme: light dark;
+  color-scheme: light dark;
 }
 ```
 
-Для поддержки только темной темы нужно указать `dark`. Если поддерживаете обе темы, то `dark light`.  Данный функционал работать почти во [всех современных браузерах](https://caniuse.com/?search=name%3A%20color-scheme), кроме Firefox.
+Для поддержки только темной темы нужно указать `dark`. Если поддерживаете обе темы, то `dark light`. Данный функционал работать почти во [всех современных браузерах](https://caniuse.com/?search=name%3A%20color-scheme), кроме Firefox.
 
 На этом пока все!
 

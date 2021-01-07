@@ -1,46 +1,38 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    appearance: none;
-    -webkit-overflow-scrolling: touch;
-    -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    min-height: 100%;
+  font-size: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: "Stem", sans-serif;
-    font-size: 100%;
-    width: 100%;
-    color: var(--fg);
-    background-color: var(--bg);
-    min-height: 100vh;
-    display: flex;
+  font-family: 'Stem', sans-serif;
+  height: 100%;
+  min-width: 320px;
 }
 
 a {
-    color: inherit;
-    font-size: inherit;
+  color: inherit;
+  font-size: inherit;
 }
 
 :focus {
-    position: relative;
-    transition: outline .1s ease-in-out;
-    outline-style: dotted !important;
-    outline-width: 2px !important;
-    outline-color: var(--color_outline) !important;
-    outline-offset: 2px;
-}
-
-.Theme-settings {
-    display: inline-block;
+  transition: outline 0.1s ease-in-out;
+  outline-style: dotted !important;
+  outline-width: 2px !important;
+  outline-color: var(--color_outline) !important;
+  outline-offset: 2px;
 }

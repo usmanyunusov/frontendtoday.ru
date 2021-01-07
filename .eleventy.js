@@ -16,7 +16,7 @@ module.exports = (config) => {
     // ----------------------------------------------------------------------------
     config.addPassthroughCopy('src/favicon.ico');
     config.addPassthroughCopy('src/robots.txt');
-    config.addPassthroughCopy('src/manifest.json');
+    config.addPassthroughCopy('src/manifest.webmanifest');
     config.addPassthroughCopy('src/fonts');
     config.addPassthroughCopy('src/**/*.(jpg|png|svg|mp4|webm)');
 
@@ -24,9 +24,6 @@ module.exports = (config) => {
     // ----------------------------------------------------------------------------
     // WATCH FILES
     // ----------------------------------------------------------------------------
-    // config.addWatchTarget('src/scripts');
-    // config.addWatchTarget('src/styles');
-
     config.addPlugin(cacheBuster({
         outputDirectory: 'dist',
     }));
@@ -114,7 +111,6 @@ module.exports = (config) => {
     config.setDataDeepMerge(true);
     config.setUseGitIgnore(false);
 
-    // https://www.11ty.io/docs/config/#configuration-options
     return {
         dir: {
             input: 'src',

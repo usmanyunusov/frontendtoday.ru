@@ -1,8 +1,8 @@
 ---
-layout: page.njk
+layout: base.njk
 ---
 
-<div class="App-root Grid-root Grid-column">
+<div class="App-root Grid-root Grid-column Grid-container">
     <div class="App-header Grid-row">
         {% include 'Header.njk' %}
     </div>
@@ -10,24 +10,27 @@ layout: page.njk
     <div class="App-main Grid-row">
         <main class="Main-root Grid-column">
             <div class="Article-root">
-                <h1 class="Article-title HeadingNews-size_m">{{ title }}</h1>
-                <date class="Article-time Caption-size_m">{{ date | ruDate }}</date>
-                <p class="Article-edit">
-                    <a href="https://github.com/usmanyunusov/frontendtoday.ru/blob/master/{{ page.inputPath }}" target="_blank">
-                        Редактировать статью на Гитхабе
-                    </a>
-                </p>
-                <p class="Article-author">
-                    Автор: <a href="{{ author.url }}" target="_blank">
-                        {{ author.name }}
-                    </a>
-                </p>
+                <div class="Article-headingWrap">
+                    <div class="Article-heading">
+                        <h1 class="Article-title HeadingNews-size_m">{{ title }}</h1>
+                        <date class="Article-time Caption-size_m">{{ date | ruDate }}</date>
+                        <p class="Article-edit">
+                            <a href="https://github.com/usmanyunusov/frontendtoday.ru/blob/master/{{ page.inputPath }}" target="_blank">
+                                Редактировать статью на Гитхабе
+                            </a>
+                        </p>
 
-                {% if hero %}
-                    <div class="Article-hero">
-                        <img src="{{ hero.src }}" class="Article-heroImage" alt="{% if hero.alt %}{{ hero.alt }}{% endif %}">
+                        <p class="Article-author">
+                            Автор: <a href="{{ author.url }}" target="_blank">{{ author.name }}</a>
+                        </p>
                     </div>
-                {% endif %}
+
+                    {% if hero %}
+                        <div class="Article-hero">
+                            <img src="{{ hero.src }}" class="Article-heroImage" alt="{% if hero.alt %}{{ hero.alt }}{% endif %}">
+                        </div>
+                    {% endif %}
+                </div>
 
                 <div class="Article-content">
                     {{ content | safe }}
@@ -36,7 +39,7 @@ layout: page.njk
                 <div class="Article-comments">
                     <div class="Article-commentsTitle">Комментарии</div>
                     <div class="Article-commentsWidget">
-                        <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-discussion="frontend_today" data-comments-limit="5" data-color="3420A3"></script>
+                        <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-discussion="frontend_today" data-comments-limit="5" data-color="ff335f"></script>
                     </div>
                 </div>
             </div>

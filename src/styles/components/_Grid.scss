@@ -1,30 +1,36 @@
 .Grid {
-    &-row {
-        display: flex;
+  &-row {
+    display: flex;
 
-        & > * {
-            width: 100%;
-        }
-
-        &--jcsb {
-            justify-content: space-between;
-
-            & > * {
-                width: auto;
-            }
-        }
-
-        &--center {
-            align-items: center;
-        }
+    & > * {
+      width: 100%;
     }
 
-    &-column {
-        display: flex;
-        flex-direction: column;
+    &--jcsb {
+      justify-content: space-between;
 
-        & > * {
-            width: 100%;
-        }
+      & > * {
+        width: auto;
+      }
     }
+
+    &--center {
+      align-items: center;
+    }
+  }
+
+  &-column {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &-container {
+    max-width: calc(60rem + 1rem);
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
 }

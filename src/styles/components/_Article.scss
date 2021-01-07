@@ -84,12 +84,12 @@
   font-family: 'Fira Code', monospace;
   font-size: 1rem;
   color: var(--inlineCode-text);
-  background-color: var(--inlineCode-bg);
-  padding: 0.2rem 0.4rem;
+  background-color: #E3F2FD;
+  padding: 0.1rem 0.4rem;
   border-radius: 4px;
   white-space: nowrap;
   color: var(--color_text_code);
-  border: 1px solid var(--inlineCode-border);
+  border: 1px solid #BBDEFB;
 }
 
 .Article-content pre[class*='language-'] {

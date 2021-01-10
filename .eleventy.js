@@ -1,130 +1,67 @@
 const chalk = require('chalk');
-const { DateTime } = require("luxon");
-
-const fs = require('fs');
-const htmlmin = require('html-minifier');
 const markdown = require('markdown-it')({ html: true });
-const prettydata = require('pretty-data');
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+
+const transforms = require('./utils/transforms.js');
+const filters = require('./utils/filters.js');
+const shortcodes = require('./utils/shortcodes.js');
 
 module.exports = (config) => {
-    console.log(chalk.black.bgGreen('Eleventy is building, please wait…'));
+  console.log(chalk.black.bgGreen('Eleventy is building, please wait…'));
 
-    // ----------------------------------------------------------------------------
-    // COPY FILES
-    // ----------------------------------------------------------------------------
-    config.addPassthroughCopy('src/favicon.ico');
-    config.addPassthroughCopy('src/robots.txt');
-    config.addPassthroughCopy('src/manifest.webmanifest');
-    config.addPassthroughCopy('src/fonts');
-    config.addPassthroughCopy('src/**/*.(jpg|png|svg|mp4|webm)');
+  // Pass-through files
+  config.addPassthroughCopy({
+    'src/assets/favicon.ico': 'favicon.ico',
+    'src/assets/robots.txt': 'robots.txt',
+    'src/assets/manifest.webmanifest': 'manifest.webmanifest',
+    'src/assets/images': 'static/images',
+    'src/assets/fonts': 'static/fonts',
+    'src/articles/**/*.(jpg|png|svg|mp4|webm)': '',
+  });
 
+  // Add plugins
+  config.addPlugin(
+    cacheBuster({
+      outputDirectory: 'dist',
+    })
+  );
 
-    // ----------------------------------------------------------------------------
-    // WATCH FILES
-    // ----------------------------------------------------------------------------
-    config.addPlugin(cacheBuster({
-        outputDirectory: 'dist',
-    }));
+  config.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: false,
+    trim: true,
+  });
 
-    // ----------------------------------------------------------------------------
-    // SHORTCODES
-    // ----------------------------------------------------------------------------
-    config.addPairedShortcode('markdown', (content) => {
-        return markdown.render(content);
-    });
+  // Add shortcodes
+  Object.keys(shortcodes).forEach((shortcodeName) => {
+    config.addFilter(shortcodeName, shortcodes[shortcodeName]);
+  });
 
-    // ----------------------------------------------------------------------------
-    // FILTERS
-    // ----------------------------------------------------------------------------
-    config.addFilter('length', (path) => {
-        const stats = fs.statSync(path);
+  // Add filters
+  Object.keys(filters).forEach((filterName) => {
+    config.addFilter(filterName, filters[filterName]);
+  });
 
-        return stats.size;
-    });
+  // Add transforms
+  Object.keys(transforms).forEach((transformName) => {
+    config.addTransform(transformName, transforms[transformName]);
+  });
 
-    config.addFilter('htmlmin', (value) => {
-        return htmlmin.minify(
-            value, {
-            removeComments: true,
-            collapseWhitespace: true
-        }
-        );
-    });
+  config.setDataDeepMerge(true);
+  config.setUseGitIgnore(false);
 
-    config.addFilter('isoDate', (value) => {
-        return DateTime.fromJSDate(value, { zone: 'utc' }).toISO();
-    });
-
-    config.addFilter('ruDate', (value) => {
-        const months = [
-            'января',
-            'февраля',
-            'марта',
-            'апреля',
-            'мая',
-            'июня',
-            'июля',
-            'августа',
-            'сентября',
-            'октября',
-            'ноября',
-            'декабря',
-        ];
-
-        let date = new Date(value);
-        return `${date.getUTCDate()} ${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
-    });
-
-    // ----------------------------------------------------------------------------
-    // TRANSFORMS
-    // ----------------------------------------------------------------------------
-    config.addTransform('htmlmin', (content, outputPath) => {
-        if (outputPath && outputPath.endsWith('.html')) {
-            const result = htmlmin.minify(
-                content, {
-                removeComments: true,
-                collapseWhitespace: true
-            }
-            );
-
-            return result;
-        }
-
-        return content;
-    });
-
-    config.addTransform('xmlmin', (content, outputPath) => {
-        if (outputPath && outputPath.endsWith('.xml')) {
-            return prettydata.pd.xmlmin(content);
-        }
-
-        return content;
-    });
-
-    config.addPlugin(syntaxHighlight, {
-        alwaysWrapLineHighlights: false,
-        trim: true
-    });
-
-    config.setDataDeepMerge(true);
-    config.setUseGitIgnore(false);
-
-    return {
-        dir: {
-            input: 'src',
-            output: 'dist',
-            includes: 'includes',
-            layouts: 'layouts',
-            data: 'data',
-        },
-        dataTemplateEngine: 'njk',
-        markdownTemplateEngine: 'njk',
-        htmlTemplateEngine: 'njk',
-        passthroughFileCopy: true,
-        templateFormats: [
-            'md', 'njk'
-        ],
-    };
+  return {
+    dir: {
+      input: 'src',
+      output: 'dist',
+      includes: 'components',
+      layouts: 'layouts',
+      data: 'data',
+    },
+    dataTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    passthroughFileCopy: true,
+    templateFormats: ['md', 'njk'],
+  };
 };

@@ -7,7 +7,7 @@
     "dev": "npm-run-all clean rollup --parallel --race watch:rollup watch:eleventy",
     "rollup": "node build.js",
     "watch:eleventy": "eleventy --serve --quiet",
-    "watch:rollup": "chokidar \"src/{scripts,styles}/**/*.{js,scss}\" --silent -c \"npm run rollup\"",
+    "watch:rollup": "chokidar \"src/assets/{scripts,styles}/**/*.{js,scss}\" --silent -c \"npm run rollup\"",
     "eleventy": "eleventy --quiet"
   },
   "dependencies": {

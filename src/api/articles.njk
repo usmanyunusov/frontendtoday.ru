@@ -8,6 +8,6 @@ eleventyExcludeFromCollections: true
         {
             "title": "{{ data.title }}",
             "url": "{{ site.paths.site ~ article.url }}"
-        }{{ '' if loop.last else ',' }}
+        }{{ '\n' if loop.last else ',' }}
     {%- endfor -%}
 ]

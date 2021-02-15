@@ -29,12 +29,7 @@
 }
 .Article-content p {
   margin: 0;
-  max-width: 720px;
   padding: 0;
-
-  @media (min-width: 960px) {
-    padding-left: 40px;
-  }
 }
 
 .Article-content p:not(:last-child) {
@@ -45,12 +40,7 @@
 .Article-content ol {
   margin: 1.5em 0 2em;
   list-style: none;
-  max-width: 720px;
   padding: 0;
-
-  @media (min-width: 960px) {
-    padding-left: 40px;
-  }
 }
 
 .Article-content li {
@@ -173,7 +163,6 @@
   }
 
   &-comments {
-    max-width: 720px;
     padding-top: 64px;
     overflow: hidden;
   }
